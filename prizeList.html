@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+    <title>三人成团 拼出壕机中奖名单</title>
+    <link href="css/layout.css" rel="stylesheet"/>
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/wap.plugins.js"></script>
+</head>
+<body style="background-color:#4d009c;">
+
+<div class="container">
+    <div class="pageCon page01">
+        <!-- dataCon04 Start -->
+       <div class="dataCon04">
+           <img src="images/prize01.jpg" alt="">
+           <img src="images/prize02.jpg" alt="">
+           <img src="images/prize03.jpg" alt="">
+           <img src="images/prize04.jpg" alt="">
+           <img src="images/prize05.jpg" alt="">
+       </div>
+        <!-- dataCon04 End -->
+    </div>
+</div>
+
+<script>
+    $.popCtrl();
+</script>
+<script>
+    //radioComponent组件
+    function RadioComponent(name) {
+        this.radios = $("input[name=" + name + "]");
+    }
+    RadioComponent.prototype.init = function () {
+        var _this = this;
+        _this.radio_module = _this.radios.parent();
+        _this.radios.bind("change", function () {
+            var _curThis = this, _curParent = $(_curThis).parent();
+            if (_curThis.checked) {
+                _this.radio_module.removeClass("checked");
+                _curParent.addClass("checked");
+            }
+        });
+    };
+    RadioComponent.prototype.defaultChecked = function (index) {
+        var _this = this;
+
+        var _curThis = this.radios.eq(index), _curParent = $(_curThis).parent();
+        _curThis.attr("checked","checked");
+        _curParent.addClass("checked");
+    };
+
+    var radiocomponent01 = new RadioComponent("radio01");
+    radiocomponent01.init();
+    radiocomponent01.defaultChecked(0);
+</script>
+</body>
+</html>
